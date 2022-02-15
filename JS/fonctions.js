@@ -81,7 +81,7 @@ function DessinerGraphTemperatureHumidite(){
                         temps.push(valeurs[i].dateHeure);
                     else if ($("#lstPeriode option:selected").val() == 1){
                         valeurs[i].jourSemaine = semaine[valeurs[i].jourSemaine - 1];
-                        temps.push(valeurs[i].jourSemaine + " " + valeurs[i].jour + "\n" + valeurs[i].dateHeure);
+                        temps.push(valeurs[i].jourSemaine + " " + valeurs[i].jour + " " + valeurs[i].dateHeure);
                     }
                     else if ($("#lstPeriode option:selected").val() == 2)
                         temps.push(valeurs[i].jour);
@@ -95,7 +95,6 @@ function DessinerGraphTemperatureHumidite(){
                         data: temperature,
                         fill: false,
                         borderColor: 'rgb(75, 192, 192)',
-                        color: 'rgb(75, 192, 192)',
                     },
                     {
                         label: 'humidité en %',
@@ -119,21 +118,27 @@ function DessinerGraphTemperatureHumidite(){
                                 type: 'linear', 
                                 position: 'left',
                                 min: 10,
-                                max: 30
+                                max: 30,
+                                grid: {
+                                    display: false,
+                                }
                             }, 
                             B: { 
                                 type: 'linear', 
                                 position: 'right',
                                 min: 30,
                                 max: 50,
-                                ticks: { 
-                                    max: 1, 
-                                    min: 0 
-                                } 
-                            } 
+                                grid: {
+                                    display: false,
+                                }
+                            },
+                            x: {
+                                grid: {
+                                    display: false,
+                                }
+                            }
                         } 
                     }
-
                 });
 
             },
