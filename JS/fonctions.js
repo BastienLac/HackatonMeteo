@@ -144,3 +144,22 @@ function DessinerGraphTemperatureHumidite(){
         }
     );     
 }
+
+function CompareTemperatureMatin()
+{
+    $.ajax
+    (
+        {
+            type:"GET",
+            url:"CompareTemperatureMatin.php",
+            success: function(data)
+            {
+                $('#cardTemperatureMatin').append(data);
+            },
+            error: function()
+            {
+                alert("Erreur appel des temperatures matin");
+            }
+        }
+    )
+}
