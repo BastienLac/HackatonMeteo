@@ -24,16 +24,24 @@
     </script>
 
 </head>
-<body>
-    <div id="container" class="m-2">
-        <h1 class="text-center">Graphique température/temps</h1>
-        <select id='lstPeriode' onChange='DessinerGraphTemperatureHumidite()'>
-            <option value='0' selected>Jour</option>
-            <option value='1'>Semaine</option>
-            <option value='2'>Mois</option>
-        </select>
-        <div id="graphTemperatureHumidite" style="height: 200px; width: 1000px">
-            <canvas id="canvasGraphTemperatureHumidite" style="height: 200px; width: 1000px"></canvas>
+<body style="background-color: #f6f7ff">
+    <div class="m-2 container">
+        <h1 class="text-center offset-3 mb-5 mt-2">Graphique température/temps</h1>
+        <div class="col-9 text-center offset-3">
+            <div class="card shadow p-3 mb-5 bg-body rounded">
+                <div class="card-body offset-1">
+                    <div class="col-2">
+                        <select id='lstPeriode' class="form-select form-select-lg text-start mb-2 border border-primary" onChange='DessinerGraphTemperatureHumidite()'>
+                            <option value='0' selected>Jour</option>
+                            <option value='1'>Semaine</option>
+                            <option value='2'>Mois</option>
+                        </select>
+                    </div>
+                    <div id="graphTemperatureHumidite" class="col-10">
+                        <canvas id="canvasGraphTemperatureHumidite"></canvas><!--  style="height: 200px; width: 9500px" -->
+                    </div> 
+                </div>
+            </div>
         </div>
     </div>
     <div id="cardTemperatureMatin"></div>
