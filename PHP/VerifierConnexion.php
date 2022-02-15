@@ -1,7 +1,7 @@
 <?php
 include "./cnx.php";
 
-$sql = $cnx->prepare("select * from utilisateur where login = ? and mdp = ?");
+$sql = $cnx->prepare("select * from utilisateur where login = ? and mdp = MD5(?)");
 $sql->bindValue(1,$_GET['login']);
 $sql->bindValue(2,$_GET['mdp']);
 $sql->execute();
