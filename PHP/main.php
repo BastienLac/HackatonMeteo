@@ -11,6 +11,7 @@
     <script src="../Bootstrap/js/bootstrap.min.js"></script>
     <script src="../Bootstrap/js/bootstrap.js"></script>
     <link href="../Bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
     <script type="text/javascript">
         $
         (
@@ -20,13 +21,14 @@
             }
         );
     </script>
+
 </head>
 <body>
     <div id="container" class="m-2">
         <h1 class="text-center">Graphique température/temps</h1>
-        <select id='lstPeriode'>
-            <option value='0'>Jour</option>
-            <option value='1' selected>Semaine</option>
+        <select id='lstPeriode' onChange='DessinerGraphTemperatureHumidite()'>
+            <option value='0' selected>Jour</option>
+            <option value='1'>Semaine</option>
             <option value='2'>Mois</option>
         </select>
         <div id="graphTemperatureHumidite" style="height: 200px; width: 1000px">
