@@ -8,7 +8,7 @@ $sql->execute();
 if($sql->rowCount() == 1){
     echo"0";
 }else{
-   $requete = $cnx->prepare("insert into utilisateur (nom,login,mdp) VALUES(?,?,?)");
+   $requete = $cnx->prepare("insert into utilisateur (nom,login,mdp) VALUES(?,?,MD5(?))");
    $requete->bindValue(1,$_POST['nom']);
    $requete->bindValue(2,$_POST['login']);
    $requete->bindValue(3,$_POST['mdp']);
