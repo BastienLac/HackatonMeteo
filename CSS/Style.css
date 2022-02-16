@@ -1,0 +1,37 @@
+
+
+#container{
+    height: 200px;
+}
+#infos{
+    width:25%;
+    height: 100%;
+    word-wrap: break-word;
+    float: left;
+
+}
+#infosHum{
+    width:25%;
+    height: 100%;
+    word-wrap: break-word;
+    float: left;
+
+}
+#GraphTemp{
+    width:25%;
+    height: 100%;
+    word-wrap: break-word;
+    float: left; 
+}
+ #GraphHum{
+    width:25%;
+    height: 100%;
+    word-wrap: break-word;
+    float: left; 
+}
+#canvasTemp{
+    width: 50%;
+}
+#canvasHum{
+    width: 50%;
+}
