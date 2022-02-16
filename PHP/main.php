@@ -13,6 +13,7 @@
     <link href="../Bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.19.1/dist/bootstrap-table.min.css">
     <script type="text/javascript">
         $
         (
@@ -26,6 +27,11 @@
                 GetCamembert();
                 GetInfosHum();
                 GetCamembertHum();
+                Notification();
+                var refresh = setInterval(function() {
+                    console.log('aaa')
+                    Notification()
+                }, 5000);
             }
         );
     </script>
@@ -51,8 +57,23 @@
                         </select>
                     </div>
                     <div id="graphTemperatureHumidite" class="col-10">
-                        <canvas id="canvasGraphTemperatureHumidite"></canvas><!--  style="height: 200px; width: 9500px" -->
+                        <canvas id="canvasGraphTemperatureHumidite"></canvas>
                     </div> 
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="btnModal" class="position-absolute bottom-0 end-0" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Notification</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onClick="ModalClose()"></button>
+                </div>
+                <div class="modal-body">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onClick="ModalClose()">Fermer</button>
                 </div>
             </div>
         </div>
@@ -62,5 +83,6 @@
         <div class="col-3" id="cardTemperatureMidi"></div>
         <div class="col-3" id="cardTemperatureSoir"></div>
     </div>
+    <script src="https://unpkg.com/bootstrap-table@1.19.1/dist/bootstrap-table.min.js"></script>
 </body>
 </html>

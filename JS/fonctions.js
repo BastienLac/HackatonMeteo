@@ -23,7 +23,7 @@ function VerifierConnexion()
     $.ajax
     (
         {
-            url:"VerifierConnexion.php",
+            url:"PHP/VerifierConnexion.php",
             data:"login="+txtLogin.value+"&mdp="+txtMdp.value,
             success: function(data)
             {
@@ -340,6 +340,30 @@ function CompareTemperatureSoir()
             success: function(data)
             {
                 $('#cardTemperatureSoir').append(data);
+            },
+            error: function()
+            {
+                alert("Erreur appel des temperatures soir");
+            }
+        }
+    )
+}
+
+function ModalClose(){
+    $('#btnModal').addClass('fade');
+}
+
+function Notification(){
+    $.ajax
+    (
+        {
+            type:"GET",
+            url:"Notification.php",
+            success: function(data)
+            {
+                $('#btnModal').removeClass('fade');
+                $('.modal-body').empty();
+                $('.modal-body').append(data);
             },
             error: function()
             {
