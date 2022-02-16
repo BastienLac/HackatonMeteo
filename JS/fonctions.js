@@ -149,3 +149,60 @@ function DessinerGraphTemperatureHumidite(){
         }
     );     
 }
+
+function CompareTemperatureMatin()
+{
+    $.ajax
+    (
+        {
+            type:"GET",
+            url:"CompareTemperatureMatin.php",
+            success: function(data)
+            {
+                $('#cardTemperatureMatin').append(data);
+            },
+            error: function()
+            {
+                alert("Erreur appel des temperatures matin");
+            }
+        }
+    )
+}
+
+function CompareTemperatureMidi()
+{
+    $.ajax
+    (
+        {
+            type:"GET",
+            url:"CompareTemperatureMidi.php",
+            success: function(data)
+            {
+                $('#cardTemperatureMidi').append(data);
+            },
+            error: function()
+            {
+                alert("Erreur appel des temperatures midi");
+            }
+        }
+    )
+}
+
+function CompareTemperatureSoir()
+{
+    $.ajax
+    (
+        {
+            type:"GET",
+            url:"CompareTemperatureSoir.php",
+            success: function(data)
+            {
+                $('#cardTemperatureSoir').append(data);
+            },
+            error: function()
+            {
+                alert("Erreur appel des temperatures soir");
+            }
+        }
+    )
+}
