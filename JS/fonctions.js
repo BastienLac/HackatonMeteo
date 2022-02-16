@@ -4,7 +4,7 @@ function GetInfos()
     (
         {
             type:"GET",
-            url:"PHP/InfosTemp.php",
+            url:"InfosTemp.php",
             success:function(data)
             {
                 $("#infos").append(data);
@@ -23,7 +23,7 @@ function VerifierConnexion()
     $.ajax
     (
         {
-            url:"PHP/VerifierConnexion.php",
+            url:"VerifierConnexion.php",
             data:"login="+txtLogin.value+"&mdp="+txtMdp.value,
             success: function(data)
             {
@@ -47,7 +47,7 @@ function GetInfosHum()
     (
         {
             type:"GET",
-            url:"PHP/InfosHum.php",
+            url:"InfosHum.php",
             success:function(data)
             {
                 $("#infosHum").append(data);
@@ -66,7 +66,7 @@ function GetCamembert()
     (
         {
             type:"GET",
-            url:"PHP/GraphTempérature.php",
+            url:"GraphTempérature.php",
             success:function(data)
             {
                 var Titre = [];
@@ -247,7 +247,7 @@ function GetCamembertHum()
     (
         {
             type:"GET",
-            url:"PHP/GraphHumidite.php",
+            url:"GraphHumidite.php",
             success:function(data)
             {
                 var Titre = [];

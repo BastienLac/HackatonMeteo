@@ -22,12 +22,22 @@
                 CompareTemperatureMatin();
                 CompareTemperatureMidi();
                 CompareTemperatureSoir();
+                GetInfos();
+                GetCamembert();
+                GetInfosHum();
+                GetCamembertHum();
             }
         );
     </script>
 
 </head>
 <body style="background-color: #f6f7ff">
+    <div class="bg-light border border-primary" id="container">
+        <div class="bg-light border border-primary" id="infos"></div>
+        <div class="bg-light border border-primary" id="GraphTemp" ><div id="canvasTemp"><canvas id="canvasGraph"></canvas></div><div></div></div>
+        <div class="bg-light border border-primary" id="infosHum"></div>
+        <div class="bg-light border border-primary" id="GraphHum"><div id="canvasHum"><canvas id="canvasGraph2"></canvas></div></div>
+    </div>
     <div class="m-2 container">
         <h1 class="text-center offset-3 mb-5 mt-2">Graphique température/temps</h1>
         <div class="col-9 text-center offset-3">
