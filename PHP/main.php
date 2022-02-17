@@ -82,8 +82,10 @@ include("session.php");
                                 class="nav-label">Temps direct</span></a>
                     </li>
                 </ul>
+
             </div>
         </nav>
+
         <div id="page-wrapper" class="gray-bg">
             <div class="row border-bottom">
                 <nav class="navbar navbar-static-top white-bg" role="navigation" style="margin-bottom: 0">
@@ -138,15 +140,21 @@ include("session.php");
                                 </li>
                             </ul>
                         </li>
+
+
                         <li>
                             <a href="deconnexion.php">
                                 <i class="fa fa-sign-out"></i> Se deconnecter
                             </a>
                         </li>
                     </ul>
+
                 </nav>
             </div>
+
+
             <div class="wrapper wrapper-content">
+
                 <div class="row">
                     <div class="col-lg-2">
                         <div class="ibox float-e-margins">
@@ -217,7 +225,7 @@ include("session.php");
                 </div>
 
                 <div class="row">
-                    <div class="col-lg-8">
+                    <div class="col-sm-8">
                         <div class="ibox float-e-margins">
                             <div class="ibox-content" style="box-shadow: 0 3px 5px -2px rgba(0, 0, 0, 0.3);">
                                 <div>
@@ -225,9 +233,8 @@ include("session.php");
                                         Graphique température/humidité
                                     </h3>
                                     <small>Capteur DHT11</small>
-                                    <button type="button" class="btn btn-primary" onclick="converHTMLFileToPDF()">
-                                        <i class="bi bi-file-earmark-pdf"></i>
-                                    </button>
+                                    <button type="button" class="col-2 offset-8 btn btn-primary"
+                                        onclick="converHTMLFileToPDF()">Extraire graphique</button>
                                     <div id="container" class="m-2">
                                         <select style="margin-right:6%" class="pull-right text-right" id='lstPeriode'
                                             onChange='DessinerGraphTemperatureHumidite()'>
@@ -235,18 +242,16 @@ include("session.php");
                                             <option value='1'>Semaine</option>
                                             <option value='2'>Mois</option>
                                         </select>
-
-                                        <div id="graphTemperatureHumidite"
-                                            style="height: 100%; width: 90%;margin:0px auto">
-                                            <canvas id="canvasGraphTemperatureHumidite" style="height: 200px"></canvas>
+                                        <div id="graphTemperatureHumidite">
+                                            <canvas id="canvasGraphTemperatureHumidite"></canvas>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4">
-                        <div class="ibox float-e-margins" style="box-shadow: 0 3px 5px -2px rgba(0, 0, 0, 0.3);">
+                    <div class="col-sm-4" style="width: 40rem;">
+                        <div style="box-shadow: 0 3px 5px -2px rgba(0, 0, 0, 0.3);">
                             <div class="ibox-title">
                                 <span class="label label-primary pull-right">Ce mois-ci</span>
                                 <h5 id="GraphHumLibelle">Humidité</h5>
@@ -258,10 +263,12 @@ include("session.php");
                                     <div class="bg-light border border-primary" id="infosTemp"></div>
                                 </div>
                                 <div class="bg-light border border-primary" id="GraphHum">
-                                    <div style="" id="canvasHum"><canvas id="canvasGraph2"></canvas></div>
+                                    <div style="padding: 20px 20px" id="canvasHum"><canvas id="canvasGraph2"></canvas>
+                                    </div>
                                 </div>
                                 <div class="bg-light border border-primary" id="GraphTemp">
-                                    <div style="" id="canvasTemp"><canvas id="canvasGraph"></canvas></div>
+                                    <div id="canvasTemp"><canvas style="padding: 20px 20px" id="canvasGraph"></canvas>
+                                    </div>
                                 </div>
 
                                 <div style="display:flex;justify-content:space-between">
@@ -336,6 +343,7 @@ include("session.php");
                     <div class="col-3" id="cardTemperatureSoir"></div>
                 </div>
                 <div class="row">
+
                     <div class="col-lg-12">
                         <div class="ibox float-e-margins">
                             <div class="ibox-title">
@@ -349,11 +357,11 @@ include("session.php");
                             <div class="ibox-content">
                                 <div class="row">
                                     <div class="col-sm-9 m-b-xs">
-                                        <!-- <div data-toggle="buttons" class="btn-group">
-                                    <label class="btn btn-sm btn-white"> <input type="radio" id="option1" name="options"> Jour </label>
-                                    <label class="btn btn-sm btn-white active"> <input type="radio" id="option2" name="options"> Semaine </label>
-                                    <label class="btn btn-sm btn-white"> <input type="radio" id="option3" name="options"> Mois </label>
-                                </div> -->
+                                        <!--                 <div data-toggle="buttons" class="btn-group">
+                        <label class="btn btn-sm btn-white"> <input type="radio" id="option1" name="options"> Jour </label>
+                        <label class="btn btn-sm btn-white active"> <input type="radio" id="option2" name="options"> Semaine </label>
+                        <label class="btn btn-sm btn-white"> <input type="radio" id="option3" name="options"> Mois </label>
+                    </div> -->
                                     </div>
                                 </div>
                                 <div class="table-responsive">
@@ -370,10 +378,14 @@ include("session.php");
                                         </tbody>
                                     </table>
                                 </div>
+
                             </div>
                         </div>
                     </div>
+
                 </div>
+
+
             </div>
 
 
@@ -782,6 +794,9 @@ include("session.php");
 
             </div>
         </div>
+
+
+
 
         <script>
         $('#infosHum').hide();

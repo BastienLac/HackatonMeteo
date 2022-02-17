@@ -151,7 +151,6 @@ function DessinerGraphTemperatureHumidite(){
         }
     );     
 }
-
 function GetInfos()
 {
     $.ajax
@@ -170,7 +169,6 @@ function GetInfos()
         }
     );
 }
-
 function GetTotalDonnees()
 {
     $.ajax
@@ -189,7 +187,6 @@ function GetTotalDonnees()
         }
     );
 }
-
 function GetInfosHum()
 {
     $.ajax
@@ -208,7 +205,6 @@ function GetInfosHum()
         }
     );
 }
-
 function GetInfosTemp()
 {
     $.ajax
@@ -397,7 +393,7 @@ function GetTabTemperature()
             success: function(data)
             {
                 $('#tabTemperature').append(data);
-                $('#tableTemperature').bootstrapTable({pagination: true});
+                $('#tableTemperature').bootstrapTable({pagination: true, search: true});
             },
             error: function()
             {
