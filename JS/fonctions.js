@@ -250,7 +250,7 @@ function GetCamembert()
                     datasets: [
                         {
                             label: 'Pourcentage des températures',
-                            backgroundColor: ['#5D89FC ','#FC5D5D'],
+                            backgroundColor: ['#25b79f ','#83cec0'],
                             borderColor: '#46d5f1',
                             hoverBackgroundColor: '#CCCCCC',
                             hoverBorderColor: '#666666',
@@ -301,7 +301,7 @@ function GetCamembertHum()
                     datasets: [
                         {
                             label: "Pourcentage des taux d'humidite",
-                            backgroundColor: ['#5D89FC ','#1ab394'],
+                            backgroundColor: ['#26a3d0 ','#87d4ef'],
                             borderColor: '#46d5f1',
                             hoverBackgroundColor: '#CCCCCC',
                             hoverBorderColor: '#666666',
@@ -413,4 +413,131 @@ function converHTMLFileToPDF() {
             doc.save('graphique.pdf');
         }
     });
+}
+function GetMaxTempDay()
+{
+    $.ajax
+    (
+        {
+            type:"GET",
+            url:"MaxTempDay.php",
+            success:function(data)
+            {
+                $("#MaxTempDay").append(data);
+            },
+            error:function()
+            {
+                alert("Erreur de récupération : MaxTempDay");
+            }
+        }
+    );
+}
+function GetMaxHumDay()
+{
+    $.ajax
+    (
+        {
+            type:"GET",
+            url:"MaxHumDay.php",
+            success:function(data)
+            {
+                $("#MaxHumDay").append(data);
+            },
+            error:function()
+            {
+                alert("Erreur de récupération : MaxHumDay");
+            }
+        }
+    );
+}
+
+function GetMinTempDay()
+{
+    $.ajax
+    (
+        {
+            type:"GET",
+            url:"MinTempDay.php",
+            success:function(data)
+            {
+                $("#MinTempDay").append(data);
+            },
+            error:function()
+            {
+                alert("Erreur de récupération : MinTempDay");
+            }
+        }
+    );
+}
+function GetMinHumDay()
+{
+    $.ajax
+    (
+        {
+            type:"GET",
+            url:"MinHumDay.php",
+            success:function(data)
+            {
+                $("#MinHumDay").append(data);
+            },
+            error:function()
+            {
+                alert("Erreur de récupération : MinHumDay");
+            }
+        }
+    );
+}
+function GetTotalDonneesJour()
+{
+    $.ajax
+    (
+        {
+            type:"GET",
+            url:"GetTotalDonneesJour.php",
+            success:function(data)
+            {
+                $("#totalDonneesJour").append(data);
+            },
+            error:function()
+            {
+                alert("Erreur de récupération : TotalDonneesJours");
+            }
+        }
+    );
+}
+function GetTotalDonneesSemaine()
+{
+    $.ajax
+    (
+        {
+            type:"GET",
+            url:"GetTotalDonneesSemaine.php",
+            success:function(data)
+            {
+                $("#totalDonneesSemaine").append(data);
+            },
+            error:function()
+            {
+                alert("Erreur de récupération : TotalDonneesSemaine");
+            }
+        }
+    );
+}
+function GetTotalDonneesMois()
+{
+    $.ajax
+    (
+        {
+            type:"GET",
+            url:"GetTotalDonneesMois.php",
+            success:function(data)
+            {
+                $("#totalDonneesMois").append(data);
+            },
+            error:function()
+            {
+                alert("Erreur de récupération : TotalDonneesMois");
+            }
+        }
+    );
 }

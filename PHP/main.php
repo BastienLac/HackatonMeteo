@@ -46,6 +46,11 @@ include("session.php");
                 GetCamembertHum();
                 GetTotalDonnees();
                 GetTabTemperature();
+                GetMaxTempDay();
+                GetMaxHumDay();
+                GetMinTempDay();
+                GetMinHumDay();
+                GetTotalDonneesJour();
             }
         );
     </script>
@@ -59,28 +64,22 @@ include("session.php");
                 <ul class="nav metismenu" id="side-menu">
                     <li class="nav-header">
                         <div class="dropdown profile-element">
-                            <img alt="image" class="img-circle" src="https://cruz.site44.com/img/profile_small.jpg" />
-                            <strong class="font-bold"><?php echo $_SESSION['login']; ?></strong>
+                            <img alt="image" class="img-circle" style="width:48px;height:48px" src="https://www.pngfind.com/pngs/m/676-6764065_default-profile-picture-transparent-hd-png-download.png" />
+                            <strong style="margin-left:10px;color:#fff"><?php echo $_SESSION['login']; ?></strong>
                         </div>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-ft-large"></i> <span class="nav-label">Graphs</span><span
-                                class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level collapse">
-                            <li><a href="https://cruz.site44.com/graph_flot.html">Flot Charts</a></li>
-                            <li><a href="https://cruz.site44.com/graph_morris.html">Morris.js Charts</a></li>
-                            <li><a href="https://cruz.site44.com/graph_rickshaw.html">Rickshaw Charts</a></li>
-                            <li><a href="https://cruz.site44.com/graph_chartjs.html">Chart.js</a></li>
-                            <li><a href="https://cruz.site44.com/graph_chartist.html">Chartist</a></li>
-                            <li><a href="https://cruz.site44.com/c3.html">c3 charts</a></li>
-                            <li><a href="https://cruz.site44.com/graph_peity.html">Peity Charts</a></li>
-                            <li><a href="https://cruz.site44.com/graph_sparkline.html">Sparkline Charts</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="https://cruz.site44.com/layouts.html"><i class="fa fa-diamond"></i> <span
-                                class="nav-label">Temps direct</span></a>
-                    </li>
+                    <a href="#donneesGenerales"><i class="fa fa-dashboard"></i> <span class="nav-label">Données générales</span></a>
+                </li>
+                <li>
+                    <a href="#Graphiques"><i class="fa fa-bar-chart"></i> <span class="nav-label">Graphiques</span></a>
+                </li>
+                <li>
+                    <a href="#Evolutions"><i class="fa fa-line-chart"></i> <span class="nav-label">Evolution</span></a>
+                </li>
+                <li>
+                    <a href="#tabDonnees"><i class="fa fa-table"></i> <span class="nav-label">Table de données</span></a>
+                </li>
                 </ul>
 
             </div>
@@ -98,68 +97,23 @@ include("session.php");
                             <span class="m-r-sm text-muted welcome-message">Bienvenue,
                                 <?php echo $_SESSION['login']; ?></span>
                         </li>
-                        <li class="dropdown">
-                            <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
-                                <i class="fa fa-bell"></i> <span class="label label-primary">8</span>
-                            </a>
-                            <ul class="dropdown-menu dropdown-alerts">
-                                <li>
-                                    <a href="https://cruz.site44.com/mailbox.html">
-                                        <div>
-                                            <i class="fa fa-envelope fa-fw"></i> You have 16 messages
-                                            <span class="pull-right text-muted small">4 minutes ago</span>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="divider"></li>
-                                <li>
-                                    <a href="https://cruz.site44.com/profile.html">
-                                        <div>
-                                            <i class="fa fa-twitter fa-fw"></i> 3 New Followers
-                                            <span class="pull-right text-muted small">12 minutes ago</span>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="divider"></li>
-                                <li>
-                                    <a href="https://cruz.site44.com/grid_options.html">
-                                        <div>
-                                            <i class="fa fa-upload fa-fw"></i> Server Rebooted
-                                            <span class="pull-right text-muted small">4 minutes ago</span>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="divider"></li>
-                                <li>
-                                    <div class="text-center link-block">
-                                        <a href="https://cruz.site44.com/notifications.html">
-                                            <strong>Les alertes</strong>
-                                            <i class="fa fa-angle-right"></i>
-                                        </a>
-                                    </div>
-                                </li>
-                            </ul>
-                        </li>
-
-
                         <li>
                             <a href="deconnexion.php">
                                 <i class="fa fa-sign-out"></i> Se deconnecter
                             </a>
                         </li>
                     </ul>
-
                 </nav>
             </div>
 
 
             <div class="wrapper wrapper-content">
 
-                <div class="row">
+                <div id="donneesGenerales" class="row">
                     <div class="col-lg-2">
                         <div class="ibox float-e-margins">
                             <div class="ibox-title">
-                                <span class="label label-success pull-right">Annuel</span>
+                                <span class="label label-primary pull-right">Annuel</span>
                                 <h5>Données</h5>
                             </div>
                             <div class="ibox-content">
@@ -169,65 +123,50 @@ include("session.php");
                     </div>
                     <div class="col-lg-2">
                         <div class="ibox float-e-margins">
-                            <div class="ibox-title">
-                                <span class="label label-info pull-right">Annual</span>
-                                <h5>Orders</h5>
-                            </div>
-                            <div class="ibox-content">
-                                <h1 class="no-margins">80,800</h1>
-                                <div class="stat-percent font-bold text-info">20% <i class="fa fa-level-up"></i></div>
-                                <small>New orders</small>
-                            </div>
+                            <div id="totalDonneesJour"></div>
                         </div>
                     </div>
-
                     <div class="col-lg-4">
                         <div class="ibox float-e-margins">
                             <div class="ibox-title">
-                                <span class="label label-primary pull-right">Today</span>
-                                <h5>visits</h5>
+                                <span class="label label-primary pull-right">Ce mois-ci</span>
+                                <h5>Jour le moins chaud/humide</h5>
+                            </div>
+                            <div class="ibox-content">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div id="MinTempDay"></div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div id="MinHumDay"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="ibox float-e-margins">
+                            <div class="ibox-title">
+                            <span class="label label-primary pull-right">Ce mois-ci</span>
+                                <h5>Jour le plus chaud/humide</h5>
                             </div>
                             <div class="ibox-content">
 
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <h1 class="no-margins">406,42</h1>
-                                        <div class="font-bold text-navy">44% <i class="fa fa-level-up"></i> <small>Rapid
-                                                pace</small></div>
+                                        <div id="MaxTempDay"></div>
                                     </div>
                                     <div class="col-md-6">
-                                        <h1 class="no-margins">206,12</h1>
-                                        <div class="font-bold text-navy">22% <i class="fa fa-level-up"></i> <small>Slow
-                                                pace</small></div>
+                                        <div id="MaxHumDay"></div>
                                     </div>
                                 </div>
-
-
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4">
-                        <div class="ibox float-e-margins">
-                            <div class="ibox-title">
-                                <h5>Monthly income</h5>
-                                <div class="ibox-tools">
-                                    <span class="label label-primary">Updated 12.2015</span>
-                                </div>
-                            </div>
-                            <div class="ibox-content no-padding">
-                                <div class="flot-chart m-t-lg" style="height: 55px;">
-                                    <div class="flot-chart-content" id="flot-chart1"></div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-
                 <div class="row">
                     <div class="col-sm-8">
                         <div class="ibox float-e-margins">
-                            <div class="ibox-content" style="box-shadow: 0 3px 5px -2px rgba(0, 0, 0, 0.3);">
+                            <div id="Graphiques" class="ibox-content" style="box-shadow: 0 3px 5px -2px rgba(0, 0, 0, 0.3);">
                                 <div>
                                     <h3 class="font-bold no-margins">
                                         Graphique température/humidité
@@ -250,7 +189,7 @@ include("session.php");
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-4" style="width: 42rem;">
+                    <div class="col-sm-4" style="width: 33%;">
                         <div style="box-shadow: 0 3px 5px -2px rgba(0, 0, 0, 0.3);">
                             <div class="ibox-title">
                                 <span class="label label-primary pull-right">Ce mois-ci</span>
@@ -267,7 +206,7 @@ include("session.php");
                                     </div>
                                 </div>
                                 <div class="bg-light border border-primary" id="GraphTemp">
-                                    <div id="canvasTemp"><canvas style="padding: 20px 20px" id="canvasGraph"></canvas>
+                                    <div style="padding: 20px 20px" id="canvasTemp"><canvas id="canvasGraph"></canvas>
                                     </div>
                                 </div>
 
@@ -283,7 +222,7 @@ include("session.php");
                         </div>
                     </div>
                 </div>
-                <h1>Aujourd hui</h1>
+                <h1 id="Evolutions">Aujourd hui</h1>
                 <div class="row">
                     <div class="col-lg-4">
                         <div class="ibox float-e-margins">
@@ -347,7 +286,7 @@ include("session.php");
                     <div class="col-lg-12">
                         <div class="ibox float-e-margins">
                             <div class="ibox-title">
-                                <h5>Relevés de données</h5>
+                                <h5 id="tabDonnees">Relevés de données</h5>
                                 <div class="ibox-tools">
                                     <a class="collapse-link">
                                         <i class="fa fa-chevron-up"></i>
