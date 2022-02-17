@@ -234,7 +234,7 @@ include("session.php");
                                     </h3>
                                     <small>Capteur DHT11</small>
                                     <button type="button" class="col-2 offset-8 btn btn-primary"
-                                        onclick="converHTMLFileToPDF()">Extraire graphique</button>
+                                        onclick="converHTMLFileToPDF()"><i class="bi bi-file-earmark-pdf"></i></button>
                                     <div id="container" class="m-2">
                                         <select style="margin-right:6%" class="pull-right text-right" id='lstPeriode'
                                             onChange='DessinerGraphTemperatureHumidite()'>
