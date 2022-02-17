@@ -8,6 +8,8 @@ $sql->execute();
 if($sql->rowCount() == 1){
     foreach($sql->fetchAll(PDO::FETCH_ASSOC) as $ligne)
     {       
+        session_start();
+        $_SESSION['login'] = $_GET['login'];
         echo"1";
     }
 }else{

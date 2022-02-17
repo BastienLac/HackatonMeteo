@@ -1,6 +1,6 @@
 <?php
 
-include "cnx.php";
+include "./cnx.php";
 
 // Période sélectionnée
 $periode = $_GET['periode'];
