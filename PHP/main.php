@@ -250,7 +250,7 @@ include("session.php");
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-4" style="width: 40rem;">
+                    <div class="col-sm-4" style="width: 42rem;">
                         <div style="box-shadow: 0 3px 5px -2px rgba(0, 0, 0, 0.3);">
                             <div class="ibox-title">
                                 <span class="label label-primary pull-right">Ce mois-ci</span>
