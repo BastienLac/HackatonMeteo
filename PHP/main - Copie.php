@@ -1,13 +1,9 @@
-<?php
-//include session.php contient le panel de tout les utilisateurs
-include("session.php");
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Page principale</title>
-    <link href="../CSS/style.css" rel="stylesheet">
+    <link href="../CSS/Style.css" rel="stylesheet">
     <script type="text/javascript" src="../JQuery/Chart.js"></script>
     <script type="text/javascript" src="../JQuery/JQuery 3.5.1.js"></script>
     <script type="text/javascript" src="../JS/fonctions.js"></script>
@@ -18,10 +14,9 @@ include("session.php");
     <link href="../Bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cruz.site44.com/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cruz.site44.com/font-awesome/css/font-awesome.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.19.1/dist/bootstrap-table.min.css">
 
     <!-- Morris -->
-    <!-- <link href="https://cruz.site44.com/css/plugins/morris/morris-0.4.3.min.css" rel="stylesheet"> -->
+    <link href="https://cruz.site44.com/css/plugins/morris/morris-0.4.3.min.css" rel="stylesheet">
 
     <link href="https://cruz.site44.com/css/animate.css" rel="stylesheet">
     <link href="https://cruz.site44.com/css/style.css" rel="stylesheet">
@@ -32,16 +27,6 @@ include("session.php");
             function()
             {
                 DessinerGraphTemperatureHumidite();
-                CompareTemperatureMatin();
-                CompareTemperatureMidi();
-                CompareTemperatureSoir();
-                GetInfos();
-                GetCamembert();
-                GetInfosHum();
-                GetInfosTemp();
-                GetCamembertHum();
-                GetTotalDonnees();
-                GetTabTemperature();
             }
         );
     </script>
@@ -55,11 +40,17 @@ include("session.php");
                 <li class="nav-header">
                     <div class="dropdown profile-element">
                             <img alt="image" class="img-circle" src="https://cruz.site44.com/img/profile_small.jpg" />
-                        <strong class="font-bold"><?php echo $_SESSION['login']; ?></strong>
+                        <strong class="font-bold">David Williams</strong>
                     </div>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-ft-large"></i> <span class="nav-label">Graphs</span><span class="fa arrow"></span></a>
+                    <a href="https://cruz.site44.com/layouts.html"><i class="fa fa-th-large"></i> <span class="nav-label">Tableau de bord</span></a>
+                </li>
+                <li>
+                    <a href="https://cruz.site44.com/layouts.html"><i class="fa fa-diamond"></i> <span class="nav-label">Temps direct</span></a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Graphs</span><span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level collapse">
                         <li><a href="https://cruz.site44.com/graph_flot.html">Flot Charts</a></li>
                         <li><a href="https://cruz.site44.com/graph_morris.html">Morris.js Charts</a></li>
@@ -70,9 +61,6 @@ include("session.php");
                         <li><a href="https://cruz.site44.com/graph_peity.html">Peity Charts</a></li>
                         <li><a href="https://cruz.site44.com/graph_sparkline.html">Sparkline Charts</a></li>
                     </ul>
-                </li>
-                <li>
-                    <a href="https://cruz.site44.com/layouts.html"><i class="fa fa-diamond"></i> <span class="nav-label">Temps direct</span></a>
                 </li>
             </ul>
 
@@ -87,7 +75,60 @@ include("session.php");
         </div>
             <ul class="nav navbar-top-links navbar-right">
                 <li>
-                    <span class="m-r-sm text-muted welcome-message">Bienvenue, <?php echo $_SESSION['login']; ?></span>
+                    <span class="m-r-sm text-muted welcome-message">Bienvenue, Admin</span>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
+                        <i class="fa fa-envelope"></i>  <span class="label label-warning">16</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-messages">
+                        <li>
+                            <div class="dropdown-messages-box">
+                                <a href="https://cruz.site44.com/profile.html" class="pull-left">
+                                    <img alt="image" class="img-circle" src="https://cruz.site44.com/img/a7.jpg">
+                                </a>
+                                <div>
+                                    <small class="pull-right">46h ago</small>
+                                    <strong>Mike Loreipsum</strong> started following <strong>Monica Smith</strong>. <br>
+                                    <small class="text-muted">3 days ago at 7:58 pm - 10.06.2014</small>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <div class="dropdown-messages-box">
+                                <a href="https://cruz.site44.com/profile.html" class="pull-left">
+                                    <img alt="image" class="img-circle" src="https://cruz.site44.com/img/a4.jpg">
+                                </a>
+                                <div>
+                                    <small class="pull-right text-navy">5h ago</small>
+                                    <strong>Chris Johnatan Overtunk</strong> started following <strong>Monica Smith</strong>. <br>
+                                    <small class="text-muted">Yesterday 1:21 pm - 11.06.2014</small>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <div class="dropdown-messages-box">
+                                <a href="https://cruz.site44.com/profile.html" class="pull-left">
+                                    <img alt="image" class="img-circle" src="https://cruz.site44.com/img/profile.jpg">
+                                </a>
+                                <div>
+                                    <small class="pull-right">23h ago</small>
+                                    <strong>Monica Smith</strong> love <strong>Kim Smith</strong>. <br>
+                                    <small class="text-muted">2 days ago at 2:30 am - 11.06.2014</small>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <div class="text-center link-block">
+                                <a href="https://cruz.site44.com/mailbox.html">
+                                    <i class="fa fa-envelope"></i> <strong>Read All Messages</strong>
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
                 </li>
                 <li class="dropdown">
                     <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
@@ -124,7 +165,7 @@ include("session.php");
                         <li>
                             <div class="text-center link-block">
                                 <a href="https://cruz.site44.com/notifications.html">
-                                    <strong>Les alertes</strong>
+                                    <strong>See All Alerts</strong>
                                     <i class="fa fa-angle-right"></i>
                                 </a>
                             </div>
@@ -134,8 +175,13 @@ include("session.php");
 
 
                 <li>
-                    <a href="deconnexion.php">
-                        <i class="fa fa-sign-out"></i> Se deconnecter
+                    <a href="https://cruz.site44.com/login.html">
+                        <i class="fa fa-sign-out"></i> Log out
+                    </a>
+                </li>
+                <li>
+                    <a class="right-sidebar-toggle">
+                        <i class="fa fa-tasks"></i>
                     </a>
                 </li>
             </ul>
@@ -145,16 +191,17 @@ include("session.php");
 
 
         <div class="wrapper wrapper-content">
-
         <div class="row">
             <div class="col-lg-2">
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
-                        <span class="label label-success pull-right">Annuel</span>
-                        <h5>Données</h5>
+                        <span class="label label-success pull-right">Monthly</span>
+                        <h5>Views</h5>
                     </div>
                     <div class="ibox-content">
-                        <div id="totalDonnees"></div>
+                        <h1 class="no-margins">386,200</h1>
+                        <div class="stat-percent font-bold text-success">98% <i class="fa fa-bolt"></i></div>
+                        <small>Total views</small>
                     </div>
                 </div>
             </div>
@@ -179,7 +226,7 @@ include("session.php");
                         <h5>visits</h5>
                     </div>
                     <div class="ibox-content">
-            
+
                         <div class="row">
                             <div class="col-md-6">
                                 <h1 class="no-margins">406,42</h1>
@@ -212,150 +259,241 @@ include("session.php");
                 </div>
             </div>
         </div>
-
         <div class="row">
-            <div class="col-sm-8">
+            <div class="col-lg-8">
                 <div class="ibox float-e-margins">
-                    <div class="ibox-content" style="box-shadow: 0 3px 5px -2px rgba(0, 0, 0, 0.3);">
+                    <div class="ibox-content">
                         <div>
                             <h3 class="font-bold no-margins">
                             Graphique température/humidité
                             </h3>
                             <small>Capteur DHT11</small>
-                                <div id="container" class="m-2">
+                                <div id="container" class="m-2" >
                                     <select style="margin-right:6%" class="pull-right text-right" id='lstPeriode' onChange='DessinerGraphTemperatureHumidite()'>
                                         <option value='0' selected>Jour</option>
                                         <option value='1'>Semaine</option>
                                         <option value='2'>Mois</option>
                                     </select>
-                                    <div id="graphTemperatureHumidite">
-                                        <canvas id="canvasGraphTemperatureHumidite"></canvas>
+                                    <div id="graphTemperatureHumidite" style="height: 100%; width: 90%;margin:0px auto">
+                                        <canvas id="canvasGraphTemperatureHumidite" style="height: 200px"></canvas>
                                     </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-sm-4" style="width: 40rem;">
-                <div style="box-shadow: 0 3px 5px -2px rgba(0, 0, 0, 0.3);">
-                    <div class="ibox-title">
-                    <span class="label label-primary pull-right">Ce mois-ci</span>
-                        <h5 id="GraphHumLibelle">Humidité</h5>
-                        <h5 id="GraphTempLibelle">Température</h5>
-                    </div>
-                    <div class="ibox-content">
-                    <div class="row">
-                        <div class="bg-light border border-primary" id="infosHum"></div>
-                        <div class="bg-light border border-primary" id="infosTemp"></div>
-                    </div>
-                        <div class="bg-light border border-primary" id="GraphHum"><div style="padding: 20px 20px" id="canvasHum"><canvas id="canvasGraph2"></canvas></div></div>
-                        <div class="bg-light border border-primary" id="GraphTemp"><div id="canvasTemp"><canvas style="padding: 20px 20px" id="canvasGraph"></canvas></div></div>
-                        
-                        <div style="display:flex;justify-content:space-between">
-                            Données: <?php $mois=array('Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'); $date=$mois[date('n')-1]; echo $date;echo date(" Y");?></small>
-                            <div>
-                                <a class="temperature">Temperature</a> | 
-                                <a class="humidite">Humidite</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <h1>Aujourd hui</h1>
-<div class="row">
-            <div class="col-lg-4">
-                <div class="ibox float-e-margins">
-                    <div class="ibox-title">
-                        <span class="label label-primary pull-right">Ce matin</span>
-                        <h5>Humidité et Temperature</h5>
-                    </div>
-                    <div class="ibox-content">
-                        <div class="row">
-                            <div class="col-3" id="cardTemperatureMatin"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4">
-                <div class="ibox float-e-margins">
-                    <div class="ibox-title">
-                        <span class="label label-primary pull-right">Cette après-midi</span>
-                        <h5>Humidité et Temperature</h5>
-                    </div>
-                    <div class="ibox-content">
-                        <div class="row">
-                            <div class="col-3" id="cardTemperatureMidi"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="ibox float-e-margins">
-                    <div class="ibox-title">
-                        <span class="label label-primary pull-right">Ce soir</span>
-                        <h5>Humidité et Temperature</h5>
-                    </div>
-                    <div class="ibox-content">
-                        <div class="row">
-                            <div class="col-3" id="cardTemperatureSoir"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="bg-light border border-primary" id="container">
-            <!-- <div class="bg-light border border-primary" id="infos"></div>
-            <div class="bg-light border border-primary" id="GraphTemp" >
-            <div id="canvasTemp">
-                <canvas id="canvasGraph"></canvas>
-            </div>
-            <div></div></div>
-            <div class="bg-light border border-primary" id="infosHum"></div>
-            <div class="bg-light border border-primary" id="GraphHum"><div id="canvasHum"><canvas id="canvasGraph2"></canvas></div></div> -->
-        </div>
-        <div class="row d-flex justify-content-center">
-            <div class="col-3 " id="cardTemperatureMatin"></div>
-            <div class="col-3" id="cardTemperatureMidi"></div>
-            <div class="col-3" id="cardTemperatureSoir"></div>
-        </div>
+<!--
         <div class="row">
     
         <div class="col-lg-12">
         <div class="ibox float-e-margins">
         <div class="ibox-title">
-            <h5>Relevés de données</h5>
+            <h5>Custom responsive table </h5>
             <div class="ibox-tools">
                 <a class="collapse-link">
                     <i class="fa fa-chevron-up"></i>
+                </a>
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <i class="fa fa-wrench"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-user">
+                    <li><a href="#">Config option 1</a>
+                    </li>
+                    <li><a href="#">Config option 2</a>
+                    </li>
+                </ul>
+                <a class="close-link">
+                    <i class="fa fa-times"></i>
                 </a>
             </div>
         </div>
         <div class="ibox-content">
             <div class="row">
                 <div class="col-sm-9 m-b-xs">
-   <!--                 <div data-toggle="buttons" class="btn-group">
-                        <label class="btn btn-sm btn-white"> <input type="radio" id="option1" name="options"> Jour </label>
-                        <label class="btn btn-sm btn-white active"> <input type="radio" id="option2" name="options"> Semaine </label>
-                        <label class="btn btn-sm btn-white"> <input type="radio" id="option3" name="options"> Mois </label>
-                    </div> -->
+                    <div data-toggle="buttons" class="btn-group">
+                        <label class="btn btn-sm btn-white"> <input type="radio" id="option1" name="options"> Day </label>
+                        <label class="btn btn-sm btn-white active"> <input type="radio" id="option2" name="options"> Week </label>
+                        <label class="btn btn-sm btn-white"> <input type="radio" id="option3" name="options"> Month </label>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="input-group"><input type="text" placeholder="Search" class="input-sm form-control"> <span class="input-group-btn">
+                                        <button type="button" class="btn btn-sm btn-primary"> Go!</button> </span></div>
                 </div>
             </div>
             <div class="table-responsive">
-            <table id="tableTemperature">
-            <thead>
-                <tr>
-                    <th>Humidité</th>
-                    <th>Temperature</th>
-                    <th>Date</th>
-                 </tr>
-            </thead>
-            <tbody id="tabTemperature">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
 
-            </tbody>
-        </table>
+                        <th>#</th>
+                        <th>Project </th>
+                        <th>Name </th>
+                        <th>Phone </th>
+                        <th>Company </th>
+                        <th>Completed </th>
+                        <th>Task</th>
+                        <th>Date</th>
+                        <th>Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Project <small>This is example of project</small></td>
+                        <td>Patrick Smith</td>
+                        <td>0800 051213</td>
+                        <td>Inceptos Hymenaeos Ltd</td>
+                        <td><span class="pie">0.52/1.561</span></td>
+                        <td>20%</td>
+                        <td>Jul 14, 2013</td>
+                        <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Alpha project</td>
+                        <td>Alice Jackson</td>
+                        <td>0500 780909</td>
+                        <td>Nec Euismod In Company</td>
+                        <td><span class="pie">6,9</span></td>
+                        <td>40%</td>
+                        <td>Jul 16, 2013</td>
+                        <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Betha project</td>
+                        <td>John Smith</td>
+                        <td>0800 1111</td>
+                        <td>Erat Volutpat</td>
+                        <td><span class="pie">3,1</span></td>
+                        <td>75%</td>
+                        <td>Jul 18, 2013</td>
+                        <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Gamma project</td>
+                        <td>Anna Jordan</td>
+                        <td>(016977) 0648</td>
+                        <td>Tellus Ltd</td>
+                        <td><span class="pie">4,9</span></td>
+                        <td>18%</td>
+                        <td>Jul 22, 2013</td>
+                        <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Alpha project</td>
+                        <td>Alice Jackson</td>
+                        <td>0500 780909</td>
+                        <td>Nec Euismod In Company</td>
+                        <td><span class="pie">6,9</span></td>
+                        <td>40%</td>
+                        <td>Jul 16, 2013</td>
+                        <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Project <small>This is example of project</small></td>
+                        <td>Patrick Smith</td>
+                        <td>0800 051213</td>
+                        <td>Inceptos Hymenaeos Ltd</td>
+                        <td><span class="pie">0.52/1.561</span></td>
+                        <td>20%</td>
+                        <td>Jul 14, 2013</td>
+                        <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Gamma project</td>
+                        <td>Anna Jordan</td>
+                        <td>(016977) 0648</td>
+                        <td>Tellus Ltd</td>
+                        <td><span class="pie">4,9</span></td>
+                        <td>18%</td>
+                        <td>Jul 22, 2013</td>
+                        <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Project <small>This is example of project</small></td>
+                        <td>Patrick Smith</td>
+                        <td>0800 051213</td>
+                        <td>Inceptos Hymenaeos Ltd</td>
+                        <td><span class="pie">0.52/1.561</span></td>
+                        <td>20%</td>
+                        <td>Jul 14, 2013</td>
+                        <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Alpha project</td>
+                        <td>Alice Jackson</td>
+                        <td>0500 780909</td>
+                        <td>Nec Euismod In Company</td>
+                        <td><span class="pie">6,9</span></td>
+                        <td>40%</td>
+                        <td>Jul 16, 2013</td>
+                        <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Betha project</td>
+                        <td>John Smith</td>
+                        <td>0800 1111</td>
+                        <td>Erat Volutpat</td>
+                        <td><span class="pie">3,1</span></td>
+                        <td>75%</td>
+                        <td>Jul 18, 2013</td>
+                        <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Gamma project</td>
+                        <td>Anna Jordan</td>
+                        <td>(016977) 0648</td>
+                        <td>Tellus Ltd</td>
+                        <td><span class="pie">4,9</span></td>
+                        <td>18%</td>
+                        <td>Jul 22, 2013</td>
+                        <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Alpha project</td>
+                        <td>Alice Jackson</td>
+                        <td>0500 780909</td>
+                        <td>Nec Euismod In Company</td>
+                        <td><span class="pie">6,9</span></td>
+                        <td>40%</td>
+                        <td>Jul 16, 2013</td>
+                        <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Project <small>This is example of project</small></td>
+                        <td>Patrick Smith</td>
+                        <td>0800 051213</td>
+                        <td>Inceptos Hymenaeos Ltd</td>
+                        <td><span class="pie">0.52/1.561</span></td>
+                        <td>20%</td>
+                        <td>Jul 14, 2013</td>
+                        <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Gamma project</td>
+                        <td>Anna Jordan</td>
+                        <td>(016977) 0648</td>
+                        <td>Tellus Ltd</td>
+                        <td><span class="pie">4,9</span></td>
+                        <td>18%</td>
+                        <td>Jul 22, 2013</td>
+                        <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
+                    </tr>
+                    </tbody>
+                </table>
             </div>
 
         </div>
@@ -370,10 +508,10 @@ include("session.php");
 
         <div class="footer">
             <div class="pull-right">
-                
+                10GB of <strong>250GB</strong> Free.
             </div>
             <div>
-                <strong>Copyright</strong> Météolia &copy; 2022
+                <strong>Copyright</strong> Example Company &copy; 2014-2017
             </div>
         </div>
 
@@ -752,35 +890,7 @@ include("session.php");
                 </div>
 
             </div>
-        </div>
-
-
-
-
-<script>
-    $('#infosHum').hide();
-    $('#GraphHum').hide();
-    $('#GraphHumLibelle').hide();
-$('.humidite').click(function(){
-    $('#infosTemp').hide();
-    $('#GraphTemp').hide();
-    $('#GraphTempLibelle').hide();
-    $('#infosHum').show();
-    $('#GraphHum').show();
-    $('#GraphHumLibelle').show();
-});
-
-$('.temperature').click(function(){
-    $('#infosTemp').show();
-    $('#GraphTemp').show();
-    $('#GraphTempLibelle').show();
-    $('#infosHum').hide();
-    $('#GraphHum').hide();
-    $('#GraphHumLibelle').hide();
-});
-</script>
-
-
+        </div>-->
             <!-- Mainly scripts -->
     <script src="https://cruz.site44.com/js/jquery-3.1.1.min.js"></script>
     <script src="https://cruz.site44.com/js/bootstrap.min.js"></script>
@@ -794,8 +904,7 @@ $('.temperature').click(function(){
 
     <!-- jQuery UI -->
     <script src="https://cruz.site44.com/js/plugins/jquery-ui/jquery-ui.min.js"></script>
-    
-    <script src="https://unpkg.com/bootstrap-table@1.19.1/dist/bootstrap-table.min.js"></script>
+
     </div> 
 </body>
 </html>
